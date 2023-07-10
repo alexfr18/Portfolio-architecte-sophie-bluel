@@ -142,10 +142,10 @@ li:hover {
 	font-size: 16px;
 }
 
-/* .active, .filter-button:hover {
+.active, .filter-button:hover {
 	background: #1D6154;
 	color: #ffffff;
-} */
+}
 
 .gallery {
 	width: 100%;
