@@ -84,7 +84,6 @@ async function main() {
 main();
 
 const loginButton = document.querySelector(".log");
-// console.log(loginButton);
 
 loginButton.addEventListener("click", () => {
   window.location.href = "./login.html";

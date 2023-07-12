@@ -49,9 +49,9 @@ table {
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	margin: auto;
 }
 header {
 	display: flex;
@@ -142,7 +142,7 @@ li:hover {
 	font-size: 16px;
 }
 
-.active, .filter-button:hover {
+.active {
 	background: #1D6154;
 	color: #ffffff;
 }
@@ -209,10 +209,10 @@ footer nav ul {
 }
 
 /****** Code css page login *********/
-.body {
+/* .body {
 	overflow-x: hidden;
 	margin: 40px;
-}
+} */
 
 #login {
 	text-align: center;
@@ -236,7 +236,7 @@ footer nav ul {
 .email1 {
 	display: flex;
 	position: relative;
-	right: 17%;
+	right: 15%;
 	padding-bottom: 7px;
 }
 
@@ -258,7 +258,7 @@ input {
 .pass1 {
 	display: flex;
 	position: relative;
-	right: 15%;
+	right: 13%;
 	padding-bottom: 6px;
 }
 
@@ -275,6 +275,7 @@ input {
     background: #1D6154;
     color: white;
 	margin-bottom: 37px;
+	cursor: pointer;
 }
 
 .mdp {
