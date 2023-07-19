@@ -83,7 +83,7 @@ async function main() {
 
 main();
 
-const loginButton = document.querySelector(".log");
+let loginButton = document.querySelector(".log");
 
 loginButton.addEventListener("click", () => {
   window.location.href = "./login.html";

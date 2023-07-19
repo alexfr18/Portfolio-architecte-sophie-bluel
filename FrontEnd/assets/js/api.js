@@ -10,14 +10,10 @@ export const getCategories = async () => {
 };
 
 export const postLogin = async (user) => {
-  // let user = {
-  //   email: "sophie.bluel@test.tld",
-  //   password: "S0phie",
-  // };
-
   let response = await fetch("http://localhost:5678/api/users/login", {
     method: "POST",
     headers: {
+      accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
