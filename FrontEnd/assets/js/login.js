@@ -2,8 +2,6 @@
 
 // async function login() {
 //   let buttonConnect = document.querySelector(".bt1");
-//   let inputLog = document.querySelector(".email2");
-//   let inputPass = document.querySelector(".pass2");
 
 //   let user = {
 //     email: inputLog.value,
@@ -22,37 +20,40 @@
 // }
 // login();
 
-let buttonConnect = document.querySelector(".bt1");
-let inputLog = document.querySelector(".email2");
-let inputPass = document.querySelector(".pass2");
+function login() {
+  let buttonConnect = document.querySelector(".bt1");
 
-let user = {
-  email: "sophie.bluel@test.tld",
-  password: "S0phie",
-};
+  buttonConnect.addEventListener("click", () => {
+    let inputLog = document.querySelector(".email2");
+    let inputPass = document.querySelector(".pass2");
 
-let postLogin = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(user),
-};
+    let user = {
+      email: inputLog.value,
+      password: inputPass.value,
+    };
 
-buttonConnect.addEventListener("click", () => {
-  fetch("http://localhost:5678/api/users/login", postLogin)
-    .then((res) => res.json())
-    .then((data) => {
-      let userData = data.token;
-      sessionStorage.setItem("Token", userData);
-      if (
-        data.token &&
-        user.email === inputLog.value &&
-        user.password === inputPass.value
-      ) {
-        window.location.href = "./index.html";
-      } else {
-        alert("Erreur dans l’identifiant ou le mot de passe");
-      }
-    });
-});
+    let postLogin = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    };
+    fetch("http://127.0.0.1:5678/api/users/login", postLogin)
+      .then((res) => res.json())
+      .then((data) => {
+        let userData = data.token;
+        if (data.token) {
+          sessionStorage.setItem("Token", userData);
+          window.location.href = "./index.html";
+        } else {
+          alert("Erreur dans l'identifiant et le mot de passe");
+        }
+      })
+      .catch((erreur) => {
+        console.log(erreur);
+      });
+  });
+}
+login();

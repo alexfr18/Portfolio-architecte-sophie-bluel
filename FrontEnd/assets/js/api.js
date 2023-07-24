@@ -10,15 +10,18 @@ export const getCategories = async () => {
 };
 
 export const postLogin = async (user) => {
-  let response = await fetch("http://localhost:5678/api/users/login", {
+  let response = {
     method: "POST",
     headers: {
       accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
-  });
-  return await response.json();
+  };
+  return response;
 };
 
+// .then((res) => res.json())
+//       .then((data) => {
+//         let userData = data.token})
 // await fetch("http://localhost:5678/api/users/login",

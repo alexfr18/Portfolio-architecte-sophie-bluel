@@ -88,3 +88,40 @@ let loginButton = document.querySelector(".log");
 loginButton.addEventListener("click", () => {
   window.location.href = "./login.html";
 });
+
+let token = sessionStorage.getItem("Token");
+console.log(token);
+let edit = document.querySelectorAll(".edit");
+
+// loginButton.addEventListener("click", clickLogout);
+
+function clickLogout() {
+  if (token) {
+    loginButton.textContent === "logout";
+  } else if (loginButton.textContent === "logout") {
+    loginButton.addEventListener("click", () => {
+      window.location.href = "./login.html";
+      localStorage.clear(token);
+    });
+  }
+}
+clickLogout();
+
+let divBlack = document.querySelector(".divBlack");
+function administrator() {
+  if (token) {
+    divBlack.style.visibility = "visible";
+  } else {
+    divBlack.style.visibility = "hidden";
+  }
+}
+administrator();
+
+function editVisibility() {
+  if (token) {
+    edit.style.visibility = "visible";
+  } else {
+    edit.style.visibility = "hidden";
+  }
+}
+editVisibility();
