@@ -109,6 +109,7 @@ li:hover {
 	display: block;
 	margin: auto;
 	width: 80%;
+	margin-bottom: 10px;
 }
 
 #introduction article {
@@ -242,6 +243,8 @@ footer nav ul {
 	text-decoration: none;
     color: black;
     font-size: 17px;
+	margin-left: 57px;
+	margin-top: 10px;
 }
 
 #edit2 {
@@ -249,6 +252,13 @@ footer nav ul {
 	color: black;
 	margin-left: 20px;
 	font-size: 17px;
+	margin-top: 6px;
+}
+
+.titleEdit {
+	text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 /****** Code css page login *********/

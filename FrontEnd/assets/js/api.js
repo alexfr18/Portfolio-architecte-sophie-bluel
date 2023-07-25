@@ -13,7 +13,6 @@ export const postLogin = async (user) => {
   let response = {
     method: "POST",
     headers: {
-      accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),

@@ -84,44 +84,39 @@ async function main() {
 main();
 
 let loginButton = document.querySelector(".log");
+let token = sessionStorage.getItem("Token");
+let firstEdit = document.getElementById("edit1");
+let secondEdit = document.getElementById("edit2");
+let filters = document.querySelector(".filters");
+let divBlack = document.querySelector(".divBlack");
 
 loginButton.addEventListener("click", () => {
-  window.location.href = "./login.html";
+  if (loginButton.textContent === "login") {
+    window.location.href = "./login.html";
+  } else if (token) {
+    sessionStorage.clear("Token");
+    window.location.href = "./index.html";
+  }
 });
-
-let token = sessionStorage.getItem("Token");
-console.log(token);
-let edit = document.querySelectorAll(".edit");
-
-// loginButton.addEventListener("click", clickLogout);
 
 function clickLogout() {
   if (token) {
-    loginButton.textContent === "logout";
-  } else if (loginButton.textContent === "logout") {
-    loginButton.addEventListener("click", () => {
-      window.location.href = "./login.html";
-      localStorage.clear(token);
-    });
+    loginButton.textContent = "logout";
   }
 }
 clickLogout();
 
-let divBlack = document.querySelector(".divBlack");
 function administrator() {
   if (token) {
+    firstEdit.style.visibility = "visible";
+    secondEdit.style.visibility = "visible";
     divBlack.style.visibility = "visible";
+    filters.style.visibility = "hidden";
   } else {
+    firstEdit.style.visibility = "hidden";
+    secondEdit.style.visibility = "hidden";
     divBlack.style.visibility = "hidden";
+    filters.style.visibility = "visible";
   }
 }
 administrator();
-
-function editVisibility() {
-  if (token) {
-    edit.style.visibility = "visible";
-  } else {
-    edit.style.visibility = "hidden";
-  }
-}
-editVisibility();
