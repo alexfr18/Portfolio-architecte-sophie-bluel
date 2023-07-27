@@ -2,19 +2,19 @@
 
 // async function login() {
 //   let buttonConnect = document.querySelector(".bt1");
-//   let inputLog = document.querySelector(".email2");
-//   let inputPass = document.querySelector(".pass2");
-//   let token = sessionStorage.getItem("Token");
+//   let inputEmail = document.querySelector(".email2");
+//   let inputPassword = document.querySelector(".pass2");
+//   let userData = sessionStorage.getItem("Token");
 
 //   let user = {
-//     email: inputLog.value,
-//     password: inputPass.value,
+//     email: inputEmail.value,
+//     password: inputPassword.value,
 //   };
 
 //   buttonConnect.addEventListener("click", async () => {
 //     const loginUser = await postLogin(user);
-//     if (user.token) {
-//       sessionStorage.setItem("Token", token);
+//     if (userData) {
+//       sessionStorage.setItem("Token", userData);
 //       window.location.href = "./index.html";
 //     } else {
 //       alert("Erreur dans l'identifiant et le mot de passe");

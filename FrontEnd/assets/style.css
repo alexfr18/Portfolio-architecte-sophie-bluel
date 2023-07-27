@@ -210,7 +210,7 @@ footer nav ul {
 }
 
 /****** Code css DivBlack *********/
-.divBlack {
+.divHeader {
 	display: flex;
 	flex-direction: row;
 	align-items: center;

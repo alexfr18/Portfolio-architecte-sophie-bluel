@@ -10,17 +10,26 @@ export const getCategories = async () => {
 };
 
 export const postLogin = async (user) => {
-  let response = {
+  let response = await fetch("http://127.0.0.1:5678/api/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
-  };
+  });
   return response;
 };
 
-// .then((res) => res.json())
-//       .then((data) => {
-//         let userData = data.token})
-// await fetch("http://localhost:5678/api/users/login",
+export const fetchDelete = async () => {
+  const response = await fetch("http://localhost:5678/api/works/1", {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer ${token}",
+    },
+  });
+  if (response.ok) {
+    console.log("Image supprimée");
+  } else {
+    alert("Erreur lors de la supression de l'image");
+  }
+};
