@@ -4,17 +4,16 @@
 //   let buttonConnect = document.querySelector(".bt1");
 //   let inputEmail = document.querySelector(".email2");
 //   let inputPassword = document.querySelector(".pass2");
-//   let userData = sessionStorage.getItem("Token");
-
+//   let token = localStorage.getItem("Token");
 //   let user = {
 //     email: inputEmail.value,
 //     password: inputPassword.value,
 //   };
-
 //   buttonConnect.addEventListener("click", async () => {
 //     const loginUser = await postLogin(user);
-//     if (userData) {
-//       sessionStorage.setItem("Token", userData);
+//     let userData = user.token;
+//     if (user.token) {
+//       localStorage.setItem("token", userData);
 //       window.location.href = "./index.html";
 //     } else {
 //       alert("Erreur dans l'identifiant et le mot de passe");
@@ -49,7 +48,7 @@ function login() {
       .then((data) => {
         let userData = data.token;
         if (data.token) {
-          sessionStorage.setItem("Token", userData);
+          localStorage.setItem("Token", userData);
           window.location.href = "./index.html";
         } else {
           alert("Erreur dans l'identifiant et le mot de passe");

@@ -15,9 +15,27 @@
 </head>
 
 <body>
+	<aside id="modal1" class="modal" aria-hidden="true">
+		<div class="modal_wrapper">
+			<i class="fa-solid fa-xmark close_icon"></i>
+			<h3 class="title_modal">Galerie photos</h3>
+			<div clas="gallery_modal">
+				<figure>
+					<i class="fa-regular fa-trash-can" id="delete_picture"></i>
+					<figcaption>éditer</figcaption>
+				</figure>
+			</div>
+			<div id="submit_modal">
+				<form action="#" method="post">
+					<input type="button" id="submit_picture" value="Ajouter une photo">
+				</form>
+				<span id="delete">Supprimer la gallerie</span>
+			</div>
+		</div>
+	</aside>
 	<div class="divHeader">
 		<i class="pen fa-regular fa-pen-to-square"></i>
-		<input type="text" class="buttonEdition" value="Mode édition">
+		<input type="button" class="buttonEdition" value="Mode édition">
 		<button class="publish">publier les changements</button>
 	</div>
 	<header>
@@ -35,8 +53,8 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
-				<a class="edit" id="edit1" href="#">
-					<i class="fa-regular fa-pen-to-square"></i>modifier</a>
+				<a href="#" class="edit" id="edit1">
+					<i class=" fa-regular fa-pen-to-square"></i>modifier</a>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -53,12 +71,11 @@
 		<section id="portfolio">
 			<div class="titleEdit">
 				<h2>Mes Projets</h2>
-				<a class="edit" id="edit2" href="#">
+				<a href="#" class="edit" id="edit2">
 					<i class="fa-regular fa-pen-to-square"></i>modifier</a>
 			</div>
 			<div class="filters"></div>
-			<div class="gallery">
-			</div>
+			<div class="gallery"></div>
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>

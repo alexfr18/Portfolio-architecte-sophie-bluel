@@ -9,6 +9,8 @@ import { fetchDelete } from "./api.js";
 const galleryElement = document.querySelector(".gallery");
 const filtersElement = document.querySelector(".filters");
 const loginButton = document.querySelector(".log");
+const firstEdit = document.getElementById("edit1");
+const secondEdit = document.getElementById("edit2");
 
 function filterButtons() {
   const buttons = [...document.querySelectorAll(".filter-button")];
@@ -72,73 +74,7 @@ function updateFilterButtons(categoryId) {
   });
 }
 
-// async function main() {
-//   const works = await getWorksAPI();
-//   displayGalleryWorks(works);
-
-//   const categories = await getCategoriesAPI();
-//   displayGalleryCategories(categories);
-
-//   return filterButtons().map((filterButton) => {
-//     filterButton.addEventListener("click", (e) => handleFilterClick(works, e));
-//   });
-// }
-
-// main();
-
-// let loginButton = document.querySelector(".log");
-// let token = sessionStorage.getItem("Token");
-// let firstEdit = document.getElementById("edit1");
-// let secondEdit = document.getElementById("edit2");
-// let filters = document.querySelector(".filters");
-// let divHeader = document.querySelector(".divHeader");
-
-// loginButton.addEventListener("click", () => {
-//   if (loginButton.textContent === "login") {
-//     window.location.href = "./login.html";
-//   } else if (token) {
-//     sessionStorage.clear("Token");
-//     window.location.href = "./index.html";
-//   }
-// });
-
-// loginButton.addEventListener("click", () => {
-//   if (token) sessionStorage.clear("Token");
-//   window.location.href = token ? "./index.html" : "./login.html";
-// });
-
-// function clickLogout() {
-//   if (token) {
-//     loginButton.textContent = "logout";
-//   }
-// }
-// clickLogout();
-
-// function administrator() {
-//   if (token) {
-//     firstEdit.style.visibility = "visible";
-//     secondEdit.style.visibility = "visible";
-//     divHeader.style.visibility = "visible";
-//     filters.style.visibility = "hidden";
-//   } else {
-//     firstEdit.style.visibility = "hidden";
-//     secondEdit.style.visibility = "hidden";
-//     divHeader.style.visibility = "hidden";
-//     filters.style.visibility = "visible";
-//   }
-// }
-
-// function administrator(token) {
-//   firstEdit.style.visibility = token ? "visible" : "hidden";
-//   secondEdit.style.visibility = token ? "visible" : "hidden";
-//   divHeader.style.visibility = token ? "visible" : "hidden";
-//   filters.style.visibility = token ? "hidden" : "visible";
-// }
-// administrator(token);
-
 function administrator(token) {
-  const firstEdit = document.getElementById("edit1");
-  const secondEdit = document.getElementById("edit2");
   const filters = document.querySelector(".filters");
   const divHeader = document.querySelector(".divHeader");
 
@@ -151,13 +87,26 @@ function administrator(token) {
   filters.style.visibility = token ? "hidden" : "visible";
 }
 
+/************** MODALE ***********/
+
+function displayPicture(works) {
+  return works.map((work) => {
+    const figure = document.querySelector("figure");
+    const pictureModal = document.createElement("img");
+    figure.appendChild(pictureModal);
+    pictureModal.src = work.imageUrl;
+  });
+}
+
 async function main() {
-  const token = sessionStorage.getItem("Token");
+  const token = localStorage.getItem("Token");
 
   administrator(token);
 
   const works = await getWorksAPI();
   displayGalleryWorks(works);
+
+  displayPicture(works);
 
   const categories = await getCategoriesAPI();
   displayGalleryCategories(categories);
@@ -167,8 +116,34 @@ async function main() {
   });
 
   loginButton.addEventListener("click", () => {
-    if (token) sessionStorage.clear("Token");
+    if (token) localStorage.clear("Token");
     window.location.href = token ? "./index.html" : "./login.html";
   });
 }
 main();
+
+// function openModal() {
+//   const body = document.querySelector("body");
+//   let divModal = document.createElement("div");
+//   body.appendChild(divModal);
+//   console.log(divModal);
+//   divModal = `<aside id="modal" class="js-modal" aria-labelledby="title_modal">
+//       <div class="modal_wrapper ">
+//         <i class="fa-solid fa-xmark close_icon"></i>
+//         <h3 id="title_modal">Galerie Photos</h3>
+//         <div class="gallery_modal" id="galleryModal">`;
+//   works.forEach((work) => {
+//     let figure = document.createElement("figure");
+//     figure = `
+//           <figure>
+//             <i class="fa-regular fa-trash-can" id="delete_picture"></i>
+//             <img src="${work.imageUrl}" data-id=${work.title} alt="${work.id}">
+//             <figcaption>éditer</figcaption>
+//           </figure>
+//         </div>
+//       </div>
+//     </aside>`;
+//     divModal += figure.innerHTML;
+//   });
+// }
+// firstEdit.addEventListener("click", openModal);

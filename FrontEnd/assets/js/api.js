@@ -9,15 +9,16 @@ export const getCategories = async () => {
   return await response.json();
 };
 
-export const postLogin = async (user) => {
-  let response = await fetch("http://127.0.0.1:5678/api/users/login", {
+export const postLogin = async () => {
+  const response = await fetch("http://127.0.0.1:5678/api/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
   });
-  return response;
+  const content = await response.json();
+  return content;
 };
 
 export const fetchDelete = async () => {
