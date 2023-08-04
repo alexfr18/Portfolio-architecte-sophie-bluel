@@ -11,6 +11,7 @@ const filtersElement = document.querySelector(".filters");
 const loginButton = document.querySelector(".log");
 const firstEdit = document.getElementById("edit1");
 const secondEdit = document.getElementById("edit2");
+const aside = document.querySelector("aside");
 
 function filterButtons() {
   const buttons = [...document.querySelectorAll(".filter-button")];
@@ -93,9 +94,26 @@ function displayPicture(works) {
   return works.map((work) => {
     const figure = document.querySelector("figure");
     const pictureModal = document.createElement("img");
+    const figcaption = document.querySelector(".edit_picture");
+    const deletePicture = document.getElementById("delete");
+
+    pictureModal.appendChild(figcaption);
     figure.appendChild(pictureModal);
+    figure.className = "figureModal";
+    pictureModal.className = "pictureModal";
     pictureModal.src = work.imageUrl;
   });
+}
+
+function closeModal() {
+  const close = document.querySelector(".close_icon");
+  close.addEventListener("click", () => {
+    aside.style.display = "none";
+  });
+}
+
+function openModal() {
+  aside.style.display = null;
 }
 
 async function main() {
@@ -119,31 +137,9 @@ async function main() {
     if (token) localStorage.clear("Token");
     window.location.href = token ? "./index.html" : "./login.html";
   });
+
+  edit1.addEventListener("click", openModal);
+
+  closeModal();
 }
 main();
-
-// function openModal() {
-//   const body = document.querySelector("body");
-//   let divModal = document.createElement("div");
-//   body.appendChild(divModal);
-//   console.log(divModal);
-//   divModal = `<aside id="modal" class="js-modal" aria-labelledby="title_modal">
-//       <div class="modal_wrapper ">
-//         <i class="fa-solid fa-xmark close_icon"></i>
-//         <h3 id="title_modal">Galerie Photos</h3>
-//         <div class="gallery_modal" id="galleryModal">`;
-//   works.forEach((work) => {
-//     let figure = document.createElement("figure");
-//     figure = `
-//           <figure>
-//             <i class="fa-regular fa-trash-can" id="delete_picture"></i>
-//             <img src="${work.imageUrl}" data-id=${work.title} alt="${work.id}">
-//             <figcaption>éditer</figcaption>
-//           </figure>
-//         </div>
-//       </div>
-//     </aside>`;
-//     divModal += figure.innerHTML;
-//   });
-// }
-// firstEdit.addEventListener("click", openModal);

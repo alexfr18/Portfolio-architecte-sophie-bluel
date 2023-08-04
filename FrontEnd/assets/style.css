@@ -360,8 +360,8 @@ color: #000000;
 
 .modal_wrapper {
 	overflow: auto;
-	width: 600px;
-	height: 600px;
+	width: 630px;
+	height: 731px;
 	background-color: white;
 }
 
@@ -379,7 +379,7 @@ color: #000000;
 
 #submit_modal {
 	position: relative;
-	top: 60%;
+	top: 20%;
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
@@ -394,6 +394,29 @@ color: #000000;
 	margin-bottom: 20px;
 }
 
-#delete {
+#delete_gallery {
 	color: red;
+}
+
+.figureModal {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.pictureModal {
+	width: 76px;
+	height: 102px;
+	margin: 10px;
+	
+}
+
+.edit_picture {
+	position: absolute;
+}
+
+#delete_picture {
+	position: absolute;
 }
