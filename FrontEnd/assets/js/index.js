@@ -96,11 +96,15 @@ function displayPicture(works) {
     const pictureModal = document.createElement("img");
     const figcaption = document.querySelector(".edit_picture");
     const deletePicture = document.getElementById("delete");
+    console.log(deletePicture);
+    console.log(figcaption);
 
-    pictureModal.appendChild(figcaption);
     figure.appendChild(pictureModal);
-    figure.className = "figureModal";
     pictureModal.className = "pictureModal";
+    // pictureModal.appendChild(deletePicture);
+    // pictureModal.appendChild(figcaption);
+    // figure.appendChild(figcaption);
+    figure.className = "figureModal";
     pictureModal.src = work.imageUrl;
   });
 }

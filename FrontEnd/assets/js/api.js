@@ -9,7 +9,7 @@ export const getCategories = async () => {
   return await response.json();
 };
 
-export const postLogin = async () => {
+export const postLogin = async (user) => {
   const response = await fetch("http://127.0.0.1:5678/api/users/login", {
     method: "POST",
     headers: {
@@ -17,8 +17,7 @@ export const postLogin = async () => {
     },
     body: JSON.stringify(user),
   });
-  const content = await response.json();
-  return content;
+  return await response.json();
 };
 
 export const fetchDelete = async () => {

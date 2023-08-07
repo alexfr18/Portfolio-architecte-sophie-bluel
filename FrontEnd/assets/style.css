@@ -375,6 +375,7 @@ color: #000000;
 	position: relative;
 	left: 95%;
 	top: 4%;
+	cursor: pointer;
 }
 
 #submit_modal {
