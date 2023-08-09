@@ -403,8 +403,6 @@ color: #000000;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 20px;
-	margin-left: 50px;
-	margin-right: 50px;
 }
 
 .pictureModal {
@@ -414,10 +412,21 @@ color: #000000;
 	
 }
 
-.edit_picture {
-	position: absolute;
+.editPicture {
+	position: relative;
+	left: 11%;
+    margin-top: 116px;
 }
 
-#delete_picture {
-	position: absolute;
+.deleteP {
+	position: relative;
+	left: 13%;
+	margin-top: 2%;
+	border: 1px solid black;
+	height: 15px;
+    color: white;
+    background-color: black;
+    width: 15px;
+    display: flex;
+    justify-content: center;
 }

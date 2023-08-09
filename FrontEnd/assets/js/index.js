@@ -94,16 +94,20 @@ function displayPicture(works) {
   return works.map((work) => {
     const figure = document.querySelector("figure");
     const pictureModal = document.createElement("img");
-    const figcaption = document.querySelector(".edit_picture");
-    const deletePicture = document.getElementById("delete");
-    console.log(deletePicture);
-    console.log(figcaption);
+    // const figcaption = document.querySelector(".edit_picture");
+    const figcaption = document.createElement("p");
+    figcaption.textContent = "éditer";
+    figcaption.appendChild(pictureModal);
+    figure.appendChild(figcaption);
 
+    const deletePicture = document.createElement("i");
+    deletePicture.className = "deleteP fa-regular fa-trash-can";
+    figcaption.className = "editPicture";
+
+    figure.appendChild(deletePicture);
+    deletePicture.appendChild(pictureModal);
     figure.appendChild(pictureModal);
     pictureModal.className = "pictureModal";
-    // pictureModal.appendChild(deletePicture);
-    // pictureModal.appendChild(figcaption);
-    // figure.appendChild(figcaption);
     figure.className = "figureModal";
     pictureModal.src = work.imageUrl;
   });
@@ -142,7 +146,9 @@ async function main() {
     window.location.href = token ? "./index.html" : "./login.html";
   });
 
-  edit1.addEventListener("click", openModal);
+  document.querySelectorAll(".editButton").forEach((a) => {
+    a.addEventListener("click", openModal);
+  });
 
   closeModal();
 }

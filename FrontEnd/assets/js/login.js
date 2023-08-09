@@ -13,7 +13,7 @@ async function login() {
     const loginUser = await postLogin(user);
     let userData = loginUser.token;
 
-    if (loginUser.token) {
+    if (userData) {
       localStorage.setItem("Token", userData);
       window.location.href = "./index.html";
     } else {
