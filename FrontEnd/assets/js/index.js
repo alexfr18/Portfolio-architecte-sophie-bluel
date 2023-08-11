@@ -4,7 +4,7 @@ import {
   getCategories as getCategoriesAPI,
 } from "./api.js";
 
-import { fetchDelete } from "./api.js";
+import { deleteAPI } from "./api.js";
 
 const galleryElement = document.querySelector(".gallery");
 const filtersElement = document.querySelector(".filters");
@@ -92,21 +92,20 @@ function administrator(token) {
 
 function displayPicture(works) {
   return works.map((work) => {
-    const figure = document.querySelector("figure");
+    const modalGallery = document.querySelector(".gallery_modal");
+    const figure = document.createElement("figure");
+    const buttonDelete = document.createElement("i");
+    const editPicture = document.createElement("p");
     const pictureModal = document.createElement("img");
-    // const figcaption = document.querySelector(".edit_picture");
-    const figcaption = document.createElement("p");
-    figcaption.textContent = "éditer";
-    figcaption.appendChild(pictureModal);
-    figure.appendChild(figcaption);
 
-    const deletePicture = document.createElement("i");
-    deletePicture.className = "deleteP fa-regular fa-trash-can";
-    figcaption.className = "editPicture";
-
-    figure.appendChild(deletePicture);
-    deletePicture.appendChild(pictureModal);
+    modalGallery.appendChild(figure);
+    figure.appendChild(editPicture);
+    figure.appendChild(buttonDelete);
     figure.appendChild(pictureModal);
+
+    editPicture.textContent = "éditer";
+    editPicture.className = "editPicture";
+    buttonDelete.className = "deleteButton fa-regular fa-trash-can";
     pictureModal.className = "pictureModal";
     figure.className = "figureModal";
     pictureModal.src = work.imageUrl;

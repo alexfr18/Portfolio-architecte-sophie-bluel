@@ -20,7 +20,7 @@ export const postLogin = async (user) => {
   return await response.json();
 };
 
-export const fetchDelete = async () => {
+export const deleteAPI = async () => {
   const response = await fetch("http://localhost:5678/api/works/1", {
     method: "DELETE",
     headers: {

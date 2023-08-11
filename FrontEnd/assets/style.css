@@ -380,7 +380,7 @@ color: #000000;
 
 #submit_modal {
 	position: relative;
-	top: 20%;
+	top: 15%;
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
@@ -399,34 +399,44 @@ color: #000000;
 	color: red;
 }
 
+.gallery_modal {
+	display: flex;
+    flex-wrap: wrap;
+    margin-right: 50px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
 .figureModal {
 	display: flex;
-	flex-wrap: wrap;
-	margin-top: 20px;
+    margin-right: 17px;
+    width: 76px;
+    height: 102px;
+    margin-top: 20px;
+	margin-bottom: 12px;
 }
 
 .pictureModal {
 	width: 76px;
 	height: 102px;
 	margin: 10px;
-	
 }
 
 .editPicture {
 	position: relative;
-	left: 11%;
+	left: 82%;
     margin-top: 116px;
 }
 
-.deleteP {
+.deleteButton {
 	position: relative;
-	left: 13%;
-	margin-top: 2%;
+	left: 80px;
+	margin-top: 16px;
 	border: 1px solid black;
 	height: 15px;
     color: white;
     background-color: black;
-    width: 15px;
+    font-size: 11px;
     display: flex;
-    justify-content: center;
-}
+    align-items: center;
+}  
