@@ -20,16 +20,19 @@ export const postLogin = async (user) => {
   return await response.json();
 };
 
-export const deleteAPI = async () => {
-  const response = await fetch("http://localhost:5678/api/works/1", {
+export const deleteAPI = async (workId) => {
+  const token = localStorage.getItem("token");
+  const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
     method: "DELETE",
     headers: {
-      Authorization: "Bearer ${token}",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   if (response.ok) {
-    console.log("Image supprimée");
+    console.log("Image supprimée avec succès");
   } else {
-    alert("Erreur lors de la supression de l'image");
+    alert("Erreur lors de la suppression de l'image");
   }
+  console.log(workId);
 };

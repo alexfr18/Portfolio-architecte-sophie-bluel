@@ -12,13 +12,16 @@ const loginButton = document.querySelector(".log");
 const firstEdit = document.getElementById("edit1");
 const secondEdit = document.getElementById("edit2");
 const aside = document.querySelector("aside");
+const modalGallery = document.querySelector(".gallery_modal");
 
+//----- Fonction pour le filtre des bouttons -----
 function filterButtons() {
   const buttons = [...document.querySelectorAll(".filter-button")];
   if (!buttons) return [];
   return buttons;
 }
 
+//----- Récupération des travaux par identifiant de catégorie -----
 function getWorksByCategoryId(works, categoryId) {
   if (categoryId === "all" || !categoryId) {
     return works;
@@ -26,6 +29,7 @@ function getWorksByCategoryId(works, categoryId) {
   return works.filter((work) => work.categoryId == categoryId);
 }
 
+//----- Création des filtres pour les bouttons -----
 function createFilterButton(id, name) {
   const button = document.createElement("button");
   button.textContent = name;
@@ -34,6 +38,7 @@ function createFilterButton(id, name) {
   filtersElement.appendChild(button);
 }
 
+//----- Affichage des travaux de la gallerie -----
 function displayGalleryWorks(works) {
   return works.map((work) => {
     const fig = document.createElement("figure");
@@ -49,6 +54,7 @@ function displayGalleryWorks(works) {
   });
 }
 
+//----- Affichage des catégories de la gallerie -----
 function displayGalleryCategories(categories) {
   filtersElement.innerHTML = "";
   createFilterButton("all", "Tous");
@@ -58,6 +64,7 @@ function displayGalleryCategories(categories) {
   });
 }
 
+//----- Gérer le clic sur les filtres -----
 function handleFilterClick(data, e) {
   galleryElement.innerHTML = "";
   const newWorks = getWorksByCategoryId(data, e.target.dataset.categoryId);
@@ -65,6 +72,7 @@ function handleFilterClick(data, e) {
   updateFilterButtons(e.target.dataset.categoryId);
 }
 
+//----- Gérer la class active sur le filtre des bouttons -----
 function updateFilterButtons(categoryId) {
   filterButtons().map((filter) => {
     if (filter.dataset.categoryId === categoryId) {
@@ -75,6 +83,7 @@ function updateFilterButtons(categoryId) {
   });
 }
 
+//----- Gérer les affichages à la connexion de l'administrateur -----
 function administrator(token) {
   const filters = document.querySelector(".filters");
   const divHeader = document.querySelector(".divHeader");
@@ -88,11 +97,9 @@ function administrator(token) {
   filters.style.visibility = token ? "hidden" : "visible";
 }
 
-/************** MODALE ***********/
-
-function displayPicture(works) {
+//----- MODALE -----
+function displayPictures(works) {
   return works.map((work) => {
-    const modalGallery = document.querySelector(".gallery_modal");
     const figure = document.createElement("figure");
     const buttonDelete = document.createElement("i");
     const editPicture = document.createElement("p");
@@ -123,6 +130,25 @@ function openModal() {
   aside.style.display = null;
 }
 
+function deletePicture(works) {
+  return works.map((work) => {
+    const galleryModal = document.querySelector(".gallery_modal");
+    galleryModal.addEventListener("click", (event) => {
+      if (event.target.classList.contains("fa-trash-can")) {
+        const pictureSelected = event.target.parentNode.querySelector("img");
+        console.log(pictureSelected);
+
+        const workId = work.id;
+        console.log("Image ID:", workId);
+        deleteAPI(workId);
+        pictureSelected.parentNode.remove();
+      }
+
+      console.log(works);
+    });
+  });
+}
+
 async function main() {
   const token = localStorage.getItem("Token");
 
@@ -131,7 +157,7 @@ async function main() {
   const works = await getWorksAPI();
   displayGalleryWorks(works);
 
-  displayPicture(works);
+  displayPictures(works);
 
   const categories = await getCategoriesAPI();
   displayGalleryCategories(categories);
@@ -150,5 +176,7 @@ async function main() {
   });
 
   closeModal();
+
+  deletePicture(works);
 }
 main();
