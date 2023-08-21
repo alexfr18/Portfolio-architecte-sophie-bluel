@@ -371,7 +371,7 @@ color: #000000;
 	margin-top: 30px;
 }
 
-.close_icon {
+.close {
 	position: relative;
 	left: 95%;
 	top: 4%;
@@ -393,6 +393,7 @@ color: #000000;
 	border-radius: 50px;
 	width: 237px;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 
 #delete_gallery {
@@ -440,3 +441,102 @@ color: #000000;
     display: flex;
     align-items: center;
 }  
+
+/******** 2ème Modale ********/
+.icone {
+	display: flex;
+	justify-content: space-between;
+}
+
+#open_modal_previous {
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 21px;
+	cursor: pointer;
+}
+
+.close_icon {
+	margin-right: 20px;
+	margin-top: 20px;
+	font-size: 21px;
+}
+
+.add_picture {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: #E8F1F6;
+    margin-right: 0;
+    height: 169px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+.previous_icone {
+	font-size: 50px;
+	color: #B9C5CC;
+}
+
+.title_add {
+	font-size: 26px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+#button_add_picture {
+	border-radius: 50px;
+    width: 173px;
+    height: 36px;
+    margin-top: 20px;
+    background-color: #CBD6DC;
+	color: #306685;
+	font-size: 14px;
+	border: 0px;
+}
+
+.text_size_picture {
+	font-size: 10px;
+	color: #444444;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.title_categorie {
+	display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.title_modal2 {
+	font-size: 14px;
+    color: #3D3D3D;
+}
+
+#name {
+	width: 420px;
+	margin-top: 10px;
+}
+
+.category {
+	margin-top: 15px;
+	font-size: 14px;
+    color: #3D3D3D;;
+}
+
+#categories {
+height: 51px;
+border: 0px;
+box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#valid {
+    margin-top: 100px;
+    width: 237px;
+    height: 36px;
+    background-color: #A7A7A7;
+}

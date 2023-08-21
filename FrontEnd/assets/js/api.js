@@ -29,10 +29,11 @@ export const deleteAPI = async (workId) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (response.ok) {
-    console.log("Image supprimée avec succès");
-  } else {
-    alert("Erreur lors de la suppression de l'image");
-  }
-  console.log(workId);
+  // if (response.ok) {
+  //   console.log("Image supprimée avec succès");
+  // } else {
+  //   alert("Erreur lors de la suppression de l'image");
+  // }
+  return await response.json();
+  // console.log(workId);
 };

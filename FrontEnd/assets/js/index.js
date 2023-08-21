@@ -13,6 +13,8 @@ const firstEdit = document.getElementById("edit1");
 const secondEdit = document.getElementById("edit2");
 const aside = document.querySelector("aside");
 const modalGallery = document.querySelector(".gallery_modal");
+let modal1 = document.getElementById("modal1");
+let modal2 = document.getElementById("modal2");
 
 //----- Fonction pour le filtre des bouttons -----
 function filterButtons() {
@@ -120,32 +122,52 @@ function displayPictures(works) {
 }
 
 function closeModal() {
-  const close = document.querySelector(".close_icon");
+  const close = document.querySelector(".close");
   close.addEventListener("click", () => {
     aside.style.display = "none";
   });
 }
 
 function openModal() {
-  aside.style.display = null;
+  modal1.style.display = null;
 }
 
-function deletePicture(works) {
+function deletePictures(works) {
   return works.map((work) => {
     const galleryModal = document.querySelector(".gallery_modal");
+
     galleryModal.addEventListener("click", (event) => {
       if (event.target.classList.contains("fa-trash-can")) {
         const pictureSelected = event.target.parentNode.querySelector("img");
-        console.log(pictureSelected);
-
+        // console.log(pictureSelected);
         const workId = work.id;
-        console.log("Image ID:", workId);
-        deleteAPI(workId);
-        pictureSelected.parentNode.remove();
-      }
 
-      console.log(works);
+        const pictureId = work.imageUrl;
+
+        if (pictureSelected) {
+          console.log("Image ID:", workId);
+          console.log(pictureId);
+          const deletePicture = deleteAPI(workId);
+          pictureSelected.parentNode.remove();
+          // console.log(work);
+          return deletePicture;
+        }
+      }
     });
+  });
+}
+//***** 2ème Modale *****/
+
+function openModal2() {
+  modal2.style.display = null;
+  modal1.style.display = "none";
+}
+
+function arrow() {
+  const arrow = document.getElementById("open_modal_previous");
+  arrow.addEventListener("click", () => {
+    modal1.style.display = null;
+    modal2.style.display = "none";
   });
 }
 
@@ -177,6 +199,11 @@ async function main() {
 
   closeModal();
 
-  deletePicture(works);
+  deletePictures(works);
+
+  const addPicture = document.getElementById("submit_picture");
+  addPicture.addEventListener("click", openModal2);
+
+  arrow();
 }
 main();

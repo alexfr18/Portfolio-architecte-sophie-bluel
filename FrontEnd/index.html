@@ -17,7 +17,7 @@
 <body>
 	<aside id="modal1" class="modal" aria-hidden="true" style="display:none;">
 		<div class="modal_wrapper">
-			<i class="fa-solid fa-xmark close_icon"></i>
+			<i class="fa-solid fa-xmark close_icon close"></i>
 			<h3 class="title_modal">Galerie photos</h3>
 			<div class="gallery_modal">
 			</div>
@@ -27,6 +27,33 @@
 				</form>
 				<span id="delete_gallery">Supprimer la gallerie</span>
 			</div>
+		</div>
+	</aside>
+	<aside id="modal2" class="modal" aria-hidden="true" style="display: none;">
+		<div class="modal_wrapper">
+			<div class="icone">
+				<i class="fa-solid fa-arrow-left" id="open_modal_previous"></i>
+				<i class="fa-solid fa-xmark close_icon"></i>
+			</div>
+			<div>
+				<h3 class="title_add">Ajout photo</h3>
+			</div>
+			<div class="add_picture">
+				<i class="fa-regular fa-image previous_icone"></i>
+				<form action="#" method="post">
+					<input type="button" id="button_add_picture" value="+ Ajouter photo">
+					<p class="text_size_picture">jpg, png : 4mo max</p>
+			</div>
+			<div class="title_categorie">
+				<label class="title_modal2" for="name">Titre</label>
+				<input type="text" name="name" id="name" autocomplete="name" />
+				<label class="category" for="categories">Catégorie</label>
+				<select id="categories" name="categories">
+					<option value=" " class="option_category" label=" "></option>
+			</div>
+			<form action="#" class="form__valid" method="post">
+				<input type="submit" id="valid" value="Valider" />
+			</form>
 		</div>
 	</aside>
 	<div class="divHeader">
