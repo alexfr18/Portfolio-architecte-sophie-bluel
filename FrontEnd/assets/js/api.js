@@ -1,4 +1,6 @@
 // module api.js
+const token = localStorage.getItem("Token");
+
 export const getWorks = async () => {
   const response = await fetch("http://localhost:5678/api/works");
   return await response.json();
@@ -20,20 +22,29 @@ export const postLogin = async (user) => {
   return await response.json();
 };
 
-export const deleteAPI = async (workId) => {
-  const token = localStorage.getItem("token");
+export const deleteWork = async (workId) => {
   const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
     method: "DELETE",
     headers: {
-      Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
-  // if (response.ok) {
-  //   console.log("Image supprimée avec succès");
-  // } else {
-  //   alert("Erreur lors de la suppression de l'image");
-  // }
+  if (response.ok) {
+    console.log("Image supprimée avec succès");
+  } else {
+    alert("Erreur lors de la suppression de l'image");
+  }
+};
+
+export const postWorks = async () => {
+  const formData = new FormData();
+
+  const response = await fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  });
   return await response.json();
-  // console.log(workId);
 };
