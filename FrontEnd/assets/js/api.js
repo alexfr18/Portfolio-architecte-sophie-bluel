@@ -36,15 +36,30 @@ export const deleteWork = async (workId) => {
   }
 };
 
-export const postWorks = async () => {
-  const formData = new FormData();
-
+export const addWorks = async (formData) => {
   const response = await fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
     },
     body: formData,
   });
   return await response.json();
 };
+
+// export const addWorks = async () => {
+//   const formData = new FormData();
+//   const response = await fetch("http://localhost:5678/api/works", {
+//     method: "POST",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//     body: formData,
+//   });
+//   if (response.ok) {
+//     console.log("Le formulaire est envoyé");
+//   } else {
+//     alert("Le formulaire n'est pas rempli correctement");
+//   }
+// };

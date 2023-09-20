@@ -261,8 +261,6 @@ footer nav ul {
 }
 
 /****** Code css page login *********/
-
-
 #login {
 	text-align: center;
 }
@@ -539,8 +537,36 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     width: 237px;
     height: 36px;
     background-color: #A7A7A7;
+	display: flex;
+	justify-content: center;
 }
 
 .selected_img {
 	width: 129px
+}
+
+/* .modal_line {
+	border: 1px solid rgba(150, 149, 149, 0.74);
+	border-top: none;
+	width: 80%;
+	margin-top: 5px;
+} */
+
+.valid_form_message {
+	font-size: 30px;
+    text-align: center;
+    color: green;
+	display: none
+}
+
+.invalid_request_form_message {
+	font-size: 30px;
+	text-align: center;
+	color: red;
+	display: none;
+}
+
+.invalid_form_message {
+	font-size: 30px;
+	text-align: center;
 }

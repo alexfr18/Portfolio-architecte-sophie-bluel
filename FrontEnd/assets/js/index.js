@@ -1,5 +1,5 @@
 // index.js
-import { getWorks, getCategories, deleteWork, postWorks } from "./api.js";
+import { getWorks, getCategories, deleteWork, addWorks } from "./api.js";
 
 const galleryElement = document.querySelector(".gallery");
 const filtersElement = document.querySelector(".filters");
@@ -9,6 +9,7 @@ const secondEdit = document.getElementById("edit2");
 const modalGallery = document.querySelector(".gallery_modal");
 let modalGalleryPicture = document.getElementById("modal1");
 let modalAddPicture = document.getElementById("modal2");
+const token = localStorage.getItem("Token");
 
 //----- Fonction pour le filtre des bouttons -----
 function filterButtons() {
@@ -163,14 +164,28 @@ function backArrow() {
 }
 
 const addInput = document.getElementById("button_add_picture");
-
 const titleInput = document.getElementById("name");
 const categoriesInput = document.getElementById("categories");
 const valid = document.getElementById("valid");
 const selectedImg = document.querySelector(".selected_img");
+const invalidRequestFormMessage = document.querySelector(
+  ".invalid_request_form_message"
+);
+const validFormMessage = document.querySelector(".valid_form_message");
+const invalidFormMessage = document.querySelector(".invalid_form_message");
+
+//----- Affichage des catégories -----
+function displayCategory(categories) {
+  return categories.map((category) => {
+    const option = document.createElement("option");
+    categoriesInput.appendChild(option);
+    option.value = category.id;
+    option.textContent += category.id + category.name;
+  });
+}
 
 //----- Affichage de la l'image -----
-function addPicture() {
+function displayPicture() {
   addInput.addEventListener("change", () => {
     const file = addInput.files[0];
     const reader = new FileReader();
@@ -189,27 +204,30 @@ function addPicture() {
   });
 }
 
-//----- -----
-function addWork() {
-  valid.addEventListener("click", () => {
-    if (
-      addInput.value === "" ||
-      titleInput.value === "" ||
-      categoriesInput.value === ""
-    )
-      return postWorks();
-  });
-
+//----- Ajout du projet -----
+async function addWork() {
   const formData = new FormData();
 
   formData.append("image", addInput.files[0]);
   formData.append("title", titleInput.value);
   formData.append("category", categoriesInput.value);
+
+  const postWork = await addWorks(formData);
+  console.log(postWork);
+
+  // if (addRequest.ok) {
+  //   invalidFormMessage.style.display = "none";
+  //   validFormMessage.style.display = "block";
+  //   console.log("Le formulaire est envoyé");
+  // } else {
+  //   invalidFormMessage.style.display = "none";
+  //   invalidRequestFormMessage.style.display = "block";
+  //   alert("Le formulaire n'est pas rempli correctement");
+  // }
+  // return postWork;
 }
 
 async function main() {
-  const token = localStorage.getItem("Token");
-
   administrator(token);
 
   const works = await getWorks();
@@ -243,8 +261,10 @@ async function main() {
 
   closeModalAddPicture();
 
-  addPicture();
+  displayCategory(categories);
 
-  addWork();
+  displayPicture();
+
+  valid.addEventListener("click", addWork);
 }
 main();
