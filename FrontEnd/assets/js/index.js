@@ -1,5 +1,5 @@
 // index.js
-import { getWorks, getCategories, deleteWork, addWorks } from "./api.js";
+import { getWorks, getCategories, deleteWork, addWorksAPI } from "./api.js";
 
 const galleryElement = document.querySelector(".gallery");
 const filtersElement = document.querySelector(".filters");
@@ -204,7 +204,7 @@ function displayPicture() {
   });
 }
 
-//----- Ajout du projet -----
+//----- Ajout d'un projet -----
 async function addWork() {
   const formData = new FormData();
 
@@ -212,19 +212,8 @@ async function addWork() {
   formData.append("title", titleInput.value);
   formData.append("category", categoriesInput.value);
 
-  const postWork = await addWorks(formData);
+  const postWork = await addWorksAPI(formData);
   console.log(postWork);
-
-  // if (addRequest.ok) {
-  //   invalidFormMessage.style.display = "none";
-  //   validFormMessage.style.display = "block";
-  //   console.log("Le formulaire est envoyé");
-  // } else {
-  //   invalidFormMessage.style.display = "none";
-  //   invalidRequestFormMessage.style.display = "block";
-  //   alert("Le formulaire n'est pas rempli correctement");
-  // }
-  // return postWork;
 }
 
 async function main() {

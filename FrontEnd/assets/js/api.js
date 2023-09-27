@@ -36,7 +36,7 @@ export const deleteWork = async (workId) => {
   }
 };
 
-export const addWorks = async (formData) => {
+export const addWorksAPI = async (formData) => {
   const response = await fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
