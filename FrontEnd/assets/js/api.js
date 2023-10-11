@@ -22,18 +22,14 @@ export const postLogin = async (user) => {
   return await response.json();
 };
 
-export const deleteWork = async (workId) => {
+export const deleteWorkAPI = async (workId) => {
   const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (response.ok) {
-    console.log("Image supprimée avec succès");
-  } else {
-    alert("Erreur lors de la suppression de l'image");
-  }
+  return await response.json();
 };
 
 export const addWorksAPI = async (formData) => {
@@ -41,25 +37,8 @@ export const addWorksAPI = async (formData) => {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
     },
     body: formData,
   });
   return await response.json();
 };
-
-// export const addWorks = async () => {
-//   const formData = new FormData();
-//   const response = await fetch("http://localhost:5678/api/works", {
-//     method: "POST",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//     body: formData,
-//   });
-//   if (response.ok) {
-//     console.log("Le formulaire est envoyé");
-//   } else {
-//     alert("Le formulaire n'est pas rempli correctement");
-//   }
-// };

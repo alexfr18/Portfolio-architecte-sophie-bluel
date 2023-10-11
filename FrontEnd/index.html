@@ -31,7 +31,7 @@
 		</div>
 	</aside>
 	<aside id="modal2" class="modal" aria-hidden="true" style="display: none;">
-		<div class="modal_wrapper">
+		<form class="modal_wrapper" onsubmit="return validAddWork()">
 			<div class="icone">
 				<i class="fa-solid fa-arrow-left" id="open_modal_previous"></i>
 				<i class="fa-solid fa-xmark close_icon close_i"></i>
@@ -41,27 +41,28 @@
 			</div>
 			<div class="add_picture">
 				<i class="fa-regular fa-image previous_icone"></i>
-				<img src="" class="selected_img">
-				<form>
-					<input type="file" id="button_add_picture" value="+ Ajouter photo">
-					<p class="text_size_picture">jpg, png : 4mo max</p>
+				<input type="file" id="button_add_picture" name="photo">
+				<p class="text_size_picture">jpg, png : 4mo max</p>
 			</div>
 			<div class="title_categorie">
 				<label class="title_modal2" for="name">Titre</label>
-				<input type="text" name="name" id="name" autocomplete="name" />
-				<label class="category" for="categories">Catégorie</label>
-				<select id="categories" name="categories"></select>
+				<input type="text" name="titre" id="name" autocomplete="off">
+				<div class="validForm">
+					<label class="category" for="categories">Catégorie</label>
+					<select id="categories" name="categories"></select>
+				</div>
 			</div>
 			<div class="part_valid">
 				<span class="modal_line"></span>
 				<input type="button" id="valid" value="Valider">
-				</form>
-				<p class="invalid_form_message">Veuillez remplir tous les champs pour ajouter un projet</p>
-				<p class="valid_form_message">Formulaire enregistré !</p>
-				<p class="invalid_request_form_message">Une erreur s'est produite lors de la soumission du formulaire
-				</p>
+				<!-- <button type="button" id="valid" onclick="addWork()">Valider</button> -->
 			</div>
-		</div>
+			<p class="invalid_form_message">Veuillez remplir tous les champs pour ajouter un projet</p>
+			<p class="valid_form_message">Formulaire enregistré !</p>
+			<p class="invalid_request_form_message">Une erreur s'est produite lors de la soumission du
+				formulaire
+			</p>
+		</form>
 	</aside>
 	<div class="divHeader">
 		<i class="pen fa-regular fa-pen-to-square"></i>
@@ -97,7 +98,6 @@
 					décorateur(trice)</p>
 			</article>
 		</section>
-		</section>
 		<section id="portfolio">
 			<div class="titleEdit">
 				<h2>Mes Projets</h2>
@@ -112,7 +112,7 @@
 			<p>Vous avez un projet ? Discutons-en !</p>
 			<form action="#" method="post">
 				<label for="name">Nom</label>
-				<input type="text" name="name" id="name">
+				<!-- <input type="text" id="name"> -->
 				<label for="email">Email</label>
 				<input type="email" name="email" id="email">
 				<label for="message">Message</label>
