@@ -18,7 +18,6 @@ const divAddPicture = document.querySelector(".add_picture");
 const selectedImg = document.createElement("img");
 divAddPicture.appendChild(selectedImg);
 selectedImg.className = "selected_img";
-const validFormMessage = document.querySelector(".valid_form_message");
 const invalidFormMessage = document.querySelector(".invalid_form_message");
 let formElements = divAddPicture.querySelectorAll(".add_picture > *");
 
@@ -185,7 +184,7 @@ function displayCategories(categories) {
     const option = document.createElement("option");
     categoriesInput.appendChild(option);
     option.value = category.id;
-    option.textContent += category.id + category.name;
+    option.textContent = category.name;
   });
 }
 
@@ -239,6 +238,7 @@ async function addWork() {
   const works = await getWorks();
   displayGalleryWorks(works);
   displayAndDeletePictures(works);
+  resetForm();
 }
 
 //----- Fonction pour réinitialiser le formulaire -----
@@ -290,7 +290,5 @@ async function main() {
   displayPicture();
 
   valid.addEventListener("click", addWork);
-
-  valid.addEventListener("click", resetForm);
 }
 main();
