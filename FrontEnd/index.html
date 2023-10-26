@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<aside id="modal1" class="modal" aria-hidden="true" style="display:none;">
+	<aside id="firstModal" class="modal" aria-hidden="true" style="display:none;">
 		<div class="modal_wrapper">
 			<i class="fa-solid fa-xmark close_icon close"></i>
 			<h3 class="title_modal">Galerie photos</h3>
@@ -30,8 +30,8 @@
 			</div>
 		</div>
 	</aside>
-	<aside id="modal2" class="modal" aria-hidden="true" style="display: none;">
-		<form class="modal_wrapper" onsubmit="return validAddWork()">
+	<aside id="secondModal" class="modal" aria-hidden="true" style="display: none;">
+		<form class="modal_wrapper" id="modalTwo">
 			<div class="icone">
 				<i class="fa-solid fa-arrow-left" id="open_modal_previous"></i>
 				<i class="fa-solid fa-xmark close_icon close_i"></i>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="add_picture">
 				<i class="fa-regular fa-image previous_icone"></i>
-				<input type="file" id="button_add_picture" name="photo">
+				<input type="file" id="button_add_picture" name="photo" accept="images/*">
 				<p class="text_size_picture">jpg, png : 4mo max</p>
 			</div>
 			<div class="title_categorie">
@@ -53,15 +53,10 @@
 				</div>
 			</div>
 			<div class="part_valid">
-				<span class="modal_line"></span>
+				<span class="modal_line_two"></span>
 				<input type="button" id="valid" value="Valider">
-				<!-- <button type="button" id="valid" onclick="addWork()">Valider</button> -->
 			</div>
 			<p class="invalid_form_message">Veuillez remplir tous les champs pour ajouter un projet</p>
-			<p class="valid_form_message">Formulaire enregistré !</p>
-			<p class="invalid_request_form_message">Une erreur s'est produite lors de la soumission du
-				formulaire
-			</p>
 		</form>
 	</aside>
 	<div class="divHeader">
@@ -75,7 +70,7 @@
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-				<li class="log">login</li>
+				<li class="to_log_in">login</li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -84,7 +79,7 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
-				<a href="#" class="editButton" id="edit1">
+				<a href="#" class="editButton" id="firstButtonEdit">
 					<i class="fa-regular fa-pen-to-square"></i>modifier</a>
 			</figure>
 			<article>
@@ -101,7 +96,7 @@
 		<section id="portfolio">
 			<div class="titleEdit">
 				<h2>Mes Projets</h2>
-				<a href="#" class="editButton" id="edit2">
+				<a href="#" class="editButton" id="secondButtonEdit">
 					<i class=" fa-regular fa-pen-to-square"></i>modifier</a>
 			</div>
 			<div class="filters"></div>

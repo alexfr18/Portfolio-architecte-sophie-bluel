@@ -23,13 +23,13 @@ export const postLogin = async (user) => {
 };
 
 export const deleteWorkAPI = async (workId) => {
-  const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+  await fetch(`http://localhost:5678/api/works/${workId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  return await response.json();
+  return;
 };
 
 export const addWorksAPI = async (formData) => {

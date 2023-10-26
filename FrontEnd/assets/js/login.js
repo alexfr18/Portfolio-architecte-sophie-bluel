@@ -16,6 +16,7 @@ async function login() {
     if (userData) {
       localStorage.setItem("Token", userData);
       window.location.href = "./index.html";
+      alert("Connexion réussie");
     } else {
       alert("Erreur dans l'identifiant et le mot de passe");
     }

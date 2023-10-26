@@ -238,7 +238,7 @@ footer nav ul {
 	padding-right: 20px;
 }
 
-#edit1 {
+#firstButtonEdit {
 	text-decoration: none;
     color: black;
     font-size: 17px;
@@ -246,7 +246,7 @@ footer nav ul {
 	margin-top: 10px;
 }
 
-#edit2 {
+#secondButtonEdit {
 	text-decoration: none;
 	color: black;
 	margin-left: 20px;
@@ -265,7 +265,7 @@ footer nav ul {
 	text-align: center;
 }
 
-.log {
+.to_log_in {
 	cursor: pointer;
 }
 
@@ -457,6 +457,7 @@ color: #000000;
 	margin-right: 20px;
 	margin-top: 20px;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .add_picture {
@@ -520,7 +521,7 @@ color: #000000;
 	margin-top: 10px;
 }
 
-.validform {
+.validForm {
 	display: flex;
 	flex-direction: column;
 }
@@ -546,6 +547,7 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	display: flex;
 	justify-content: center;
 	border-radius: 50px;
+	cursor: pointer;
 }
 
 .selected_img {
@@ -559,6 +561,13 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     margin-bottom: 50px;
 }
 
+.modal_line_two {
+	display: flex;
+    width: 420px;
+    border: 1px solid #B3B3B3;
+    margin-top: 50px;
+}
+
 .valid_form_message {
 	font-size: 30px;
     text-align: center;
@@ -566,17 +575,11 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	display: none
 }
 
-.invalid_request_form_message {
-	font-size: 30px;
-	text-align: center;
-	color: red;
-	display: none;
-}
-
 .invalid_form_message {
 	font-size: 30px;
 	text-align: center;
 	display: none;
+	color: red;
 }
 
 .modal_line {
@@ -593,4 +596,14 @@ box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	flex-direction: column;
     display: flex;
     align-items: center;
+}
+
+#valid.vert {
+	background-color: #1D6154;
+	color: white;
+}
+
+#valid.rouge {
+	background-color: red;
+	color: white;
 }
